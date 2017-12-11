@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Home</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Home</h1>
+
+    
+
+
+
+    
+
+
+    <h3> </h3>
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    <section>
+        <article><h1>HCF FED Template</h1><p>This readme file explains the HCF FED Template.</p>
+<h2>TODO notes</h2><p>Before deployment, search through the project folder for the string <code>TODO:</code> or <code>FIXME:</code> to check if anything has been labelled as requiring attention.</p>
+<h2>Development Environment Prerequisites</h2><h3>Node.js</h3><p>Some tools require <a href="http://nodejs.org">Node.js</a> to be installed. You can test that Node.js is installed by running <code>node -v</code></p>
+<h4>Grunt</h4><p><a href="http://gruntjs.com/">Grunt</a> is a JavaScript task runner that is used to build the front end templates and assets. Install it by running <code>npm install -g grunt-cli</code> from the command line.</p>
+<h4>Installing Node.js modules</h4><p>When you first pull down a project you'll need to get the Node.JS packages which can be done by running <code>npm install</code> from the command line in the root folder of the project. This looks for the <code>package.json</code> file and loads and installs the dependencies specified here.</p>
+<h3>Bower</h3><p>Some required components (including core components such as DDBreakpoints) are defined in bower.json and installed via bower. To install these components, first install <a href="https://bower.io/">Bower</a>. Then run <code>bower install</code> from the command line in the root folder of the project.</p>
+<h2>Running a local development server</h2><p>In the command line, run <code>grunt dev</code> to start a local <a href="https://www.browsersync.io/">Browsersync</a> server at <a href="http://localhost:3000">http://localhost:3000</a>. This works together with the <code>watch</code> task, and live reloads the browser when files are changed.</p>
+<h3>Running individual tasks</h3><p>The following tasks can be individually run for quick compilation without starting the local development server:</p>
+<ul>
+<li><code>grunt html:dev</code>/<code>grunt html:build</code> - Compiles HTML templates</li>
+<li><code>grunt css:dev</code>/<code>grunt css:build</code> - Compiles Sass stylesheets</li>
+<li><code>grunt js:dev</code>/<code>grunt js:build</code> - Compiles JS files</li>
+<li><code>grunt svg</code> - Generates grunticons. See below for more detail</li>
+</ul>
+<h2>HTML templates</h2><p>HTML templates are located in <code>source/views/</code>. <a href="https://github.com/alanshaw/grunt-include-replace">grunt-include-replace</a> is used to split up the HTML files for maintainability. The structure is as follows:</p>
+<ul>
+<li><code>source/views/*.html</code><ul>
+<li>The file names of these immediate HTML files define the URL which can be viewed in the browser. They don’t contain any contents, but include layouts and corresponding templates contents (see below)</li>
+</ul>
+</li>
+<li><code>source/views/templates</code><ul>
+<li>The HTML files in here hold the actual contents for each template type</li>
+</ul>
+</li>
+<li><code>source/views/includes</code><ul>
+<li>This directory contains global elements such as navigation and modal window</li>
+</ul>
+</li>
+<li><code>source/views/layouts/layout.html</code><ul>
+<li>This file contains the overall HTML structure, such as <code>&lt;html&gt;</code> <code>&lt;head&gt;</code> and <code>&lt;body&gt;</code></li>
+</ul>
+</li>
+</ul>
+<h2>GIT Commands</h2><p>git branch [to see branches]
+git checkout -b feature/AEMWEB-51-P2P-StartOver [create new feature branch]
+git add . [to temporarily store changes ]
+git commit -m &quot;AEMWEB-51 | fixed issue with start Over in P2P&quot; [commit changes back in local repository]
+git checkout feature/data-restructure [switch to different branch]
+git push --set-upstream origin feature/AEMWEB-45-P2P-Sticky-header [push all changes to remote server]</p>
+<p>GIT Repository<br>https://bitbucket.hcf.com.au/projects/DTPAEM/repos/hcf-fed/browse </p>
+<h2>SVG images</h2><p>Vector graphics are displayed as SVG images so that they are sharp when the page is zooomed. SVGs are not supported on IE8 or Android 2.2 so we use grunticon to fall back to PNG sprites in this case. grunticon takes a folder of SVG files (typically, icons that you've drawn in an application like Adobe Illustrator), and outputs them to CSS in 3 formats: SVG data urls, PNG data urls, and a third fallback CSS file with references to regular PNG images, which are also automatically generated and placed in a folder.</p>
+<h3>Installing grunticon</h3><ol>
+<li>Install Node: http://nodejs.org</li>
+<li>Install PhantomJS: http://phantomjs.org/download.html</li>
+<li>Install Grunt: <code>npm install -g grunt-cli</code></li>
+<li><code>cd</code> into the root folder of the project (the folder containing config.rb)</li>
+<li>Install grunt and grunticon locally (they will be read from package.json): <code>npm install</code></li>
+</ol>
+<h3>Getting vectors from Photoshop to SVG</h3><ol>
+<li>Select the Photoshop layer with the shape</li>
+<li>Go to File &gt; Export &gt; Paths to Illustrator</li>
+<li>Open the exported AI file in Illustrator</li>
+<li>Create artboard for: Artwork bounding box</li>
+<li>Select the shape and apply the correct background / line colours</li>
+<li>Select the artboard tool (Shift O) and make sure the size of the artboard is appropriate.</li>
+<li><em>Adjust the artboard size and round up (or down) to a full pixel, or otherwise the icon may be cropped in IE9 and IE10!</em> This is also a good opportunity to do some QA on the design. Is there a horizontal line that is 1.01 px tall? Make it a round 1px tall and it will look sharper.</li>
+<li>Time to save. Go to File &gt; Save as<ul>
+<li>Location: source/assets/img/svgs-src</li>
+<li>Format: SVG</li>
+<li>SVG Profile: SVG 1.1 Tiny</li>
+<li>Type: Convert to outline before export</li>
+<li>Images: Embed</li>
+<li>Don't check &quot;Preserve Illustrator editing&quot; to reduce file size</li>
+</ul>
+</li>
+<li><code>cd</code> into the root folder of the project and run <code>grunt</code></li>
+<li>To modify the CSS selectors for the image, edit the <code>customselectors</code> property in Gruntfile.js</li>
+</ol>
+<h3>Saving out icons in multiple colours</h3><p>Some of the icons need to be exported in multiple colours. We can use grunticon to automate this process, so that we have one SVG in the svgs-src folder which is exported to different coloured SVGs and PNGs in the output svg folder. You define the colours by adding some text to the filename. For example, if you save a file called &quot;ec-collapsed.colors-blue-red.svg&quot;, then grunticon will create three files:</p>
+<ul>
+<li>ec-collapsed.svg (with the original colour)</li>
+<li>ec-collapsed-blue.svg (shade of blue is defined in Gruntfile.js)</li>
+<li>ec-collapsed-red.svg (shade of red is defined in Gruntfile.js)</li>
+</ul>
+<h2>Unit-testing</h2><h3>To install</h3><ol>
+<li>Install your node modules: <code>npm install</code></li>
+<li>Install karma-cli: <code>npm install -g karma-cli</code></li>
+<li>Run your tests: <code>karma start</code></li>
+</ol></article>
+    </section>
+
+
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-emailQuote.html">emailQuote</a></li><li><a href="module-maps.html">maps</a></li></ul><h3>Classes</h3><ul><li><a href="module-maps-constructor.html">constructor</a></li><li><a href="module-maps-Instance.html">Instance</a></li></ul><h3>Namespaces</h3><ul><li><a href="DD.html">DD</a></li><li><a href="DD.bp.html">bp</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Mon Jan 16 2017 10:51:19 GMT+1100 (AEDT)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
